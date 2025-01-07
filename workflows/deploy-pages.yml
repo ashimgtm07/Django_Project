@@ -1,0 +1,22 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to GitHub Pages
+      run: |
+        mkdir public
+        cp -R Kathmandu_Project/webgis_app/templates/webgis_app/* public/
+        touch public/.nojekyll
+        git add public
+        git commit -m "Deploy GitHub Pages from child-folder"
+        git push origin gh-pages
