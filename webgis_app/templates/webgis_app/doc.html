@@ -1,0 +1,106 @@
+{% extends "index.html" %}
+{% block title %}Documents{% endblock %}
+{% block content %}
+<style>     
+   
+
+    section {
+        padding: 20px;
+        margin: 20px 10%;
+        background-color: rgba(255, 255, 255, 0.9); 
+        border-radius: 10px;
+    }
+
+    
+    section h2 {
+        font-size: 2em;
+        font-weight: bold;
+        color: black; 
+        margin-bottom: 15px;
+        font-family: 'Verdana', sans-serif; /* Change font */
+    }
+
+    .links a,
+    .literature ul li a {
+        display: inline-block;
+        margin: 10px 10px 10px 0;
+        padding: 10px 20px;
+        background-color:rgb(26, 163, 217); 
+        text-decoration: none;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        color: white;
+    }
+
+    
+    .links a:hover,
+    .literature ul li a:hover {
+        background-color: white; /* Background changes to white */
+        color: #188754; /* Text changes to green */
+        border: 2px solid #188754; /* Add border on hover */
+    }
+    .literature ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .literature ul li {
+        margin-bottom: 10px;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #145d3c; 
+        color: white; 
+        border-top: 3px solid #188754;
+        margin-bottom:0;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: fixed;
+    }
+    footer p {
+        font-size: 0.9em;
+        margin: 0;
+    }
+    @media screen and (max-width: 768px) {
+        section {
+            margin: 20px 5%;
+        }
+
+        section h2 {
+            font-size: 1.6em;
+        }
+
+        .links a,
+        .literature ul li a {
+            font-size: 0.9em;
+            padding: 8px 15px;
+        }
+    }
+</style>
+<h1>Project Documents</h1>
+<section class="links">
+    <h2>Project Links</h2>
+    <a href="https://www.linkedin.com/pulse/geohealth-web-application-analyzing-health-kathmandu-valley-acharya-ibyvf/?trackingId=PdQVjt8HQIqk093THJMg4A%3D%3D" target="_blank">LinkedIn Post</a>
+    <a href="https://github.com" target="_blank">GitHub Repository</a>
+    <a href="https://youtube.com" target="_blank">YouTube Video</a>
+</section>
+
+<section class="literature">
+    <h2>Literature and Documentation</h2>
+    <ul>
+        <li><a href="https://docs.djangoproject.com" target="_blank">Django Documentation</a></li>
+        <li><a href="https://leafletjs.com" target="_blank">Leaflet Documentation</a></li>
+        <li><a href="https://www.weatherapi.com/" target="_blank">Weather API Documentation</a></li>
+        <li><a href="https://geojson.readthedocs.io/en/latest/" target="_blank">GeoJSON Documentation</a></li>
+        <li><a href="https://www.openstreetmap.org/help" target="_blank">OpenStreetMap Documentation</a></li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2025 GeoHealth Web Application Team</p>
+</footer>
+{% endblock %}

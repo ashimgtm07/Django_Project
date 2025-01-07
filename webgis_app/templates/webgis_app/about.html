@@ -1,0 +1,194 @@
+{% extends "index.html" %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+{%load static%}
+<style>
+    
+    {% comment %} body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background: rgba(24, 135, 84, 0.4); 
+    } {% endcomment %}
+    
+    section {
+        padding: 3rem 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    h2 {
+        color: #188754;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: #555;
+        font-size: 1.1em;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    
+    .team-member-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 2.5rem;
+    }
+
+    .team-card {
+        background-color: #fff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        width: 300px;
+        margin: 15px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .team-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .team-card-content {
+        padding: 20px;
+    }
+
+    .team-card h3 {
+        font-size: 1.5em;
+        color: #188754;
+        margin-bottom: 10px;
+    }
+
+    .team-card p {
+        font-size: 1.1em;
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    
+    .contact {
+        margin-top: 3rem;
+        background-color: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact a {
+        color: #188754;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .contact a:hover {
+        text-decoration: underline;
+    }
+
+    
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #145d3c; 
+        color: white; 
+        border-top: 3px solid #188754;
+        margin-top: 20px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: fixed;
+
+    }
+    footer p {
+        font-size: 0.9em;
+        margin: 0;
+        color: white;
+    } 
+
+    
+    @media screen and (max-width: 768px) {
+        section {
+            padding: 2rem;
+            margin-top: 10px;
+        }
+
+        .team-member-card {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-card {
+            width: 80%;
+            margin: 10px auto;
+        }
+    }
+</style>
+<h1>About Us</h1>
+<section>
+        <h2>Who We Are</h2>
+        <p>We are a dynamic team of innovators—<strong>Ashim Gautam</strong>, <strong>Laxmi Acharya</strong>, and <strong>Pragya Joshi</strong>—united by a shared passion for leveraging technology to bridge the gap between geography and healthcare. With diverse expertise and a commitment to making a difference, we are dedicated to creating impactful solutions that empower communities through geospatial health insights.</p>
+
+        <h2>Our Vision</h2>
+        <p>To transform how healthcare resources are accessed by seamlessly integrating geospatial technology with healthcare systems. We envision a future where individuals can quickly locate nearby healthcare facilities within their preferred radius, enabling informed, timely, and life-saving decisions.</p>
+
+        <h2>What We Do</h2>
+        <p>Our app leverages cutting-edge geospatial technologies to simplify healthcare access. By allowing users to define a buffer radius, it identifies hospitals and healthcare facilities in their vicinity, providing real-time insights tailored to their specific needs. This empowers individuals to make proactive decisions for their health and well-being, bridging the gap between technology and healthcare.</p>
+
+        <h2>Our Team</h2>
+
+        <div class="team-member-card">
+            <div class="team-card">
+                <img src="{% static 'images/ashim.png' %}" alt="Ashim Gautam">
+                <div class="team-card-content">
+                    <h3>Ashim Gautam</h3>
+                    <p>A backend specialist who designed the app’s architecture and ensured smooth integration of geospatial technologies with healthcare data. He optimized data processing and implemented advanced algorithms, creating a reliable foundation for the app.</p>
+                    <p>Email: <a href="mailto:ashimggtm.at@gmail.com">ashimggtm.at@gmail.com</a></p>
+                    <p>Phone: 9841522823</p>
+                    <p>LinkedIn: <a href="https://www.linkedin.com/in/ashim-gautam-629949255" target="_blank">Ashim Gautam</a></p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="{% static 'images/laxmi.png' %}" alt="Laxmi Acharya">
+                <div class="team-card-content">
+                    <h3>Laxmi Acharya</h3>
+                    <p>Laxmi focused on database management, server-side logic, and ensuring secure and seamless data flow. Her work ensured the app’s reliability and performance, making it user-ready and robust.</p>
+                    <p>Email: <a href="mailto:contact.laxmiacharya@gmail.com">contact.laxmiacharya@gmail.com</a></p>
+                    <p>Phone: 9860186490</p>
+                    <p>LinkedIn: <a href="https://www.linkedin.com/in/laxmi-acharya1/" target="_blank">Laxmi Acharya</a></p>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="{% static 'images/pragya.png' %}" alt="Pragya Joshi">
+                <div class="team-card-content">
+                    <h3>Pragya Joshi</h3>
+                    <p>Pragya led frontend development and content creation, designing an intuitive user interface and engaging content. Her efforts made the app approachable and impactful for users.</p>
+                    <p>Email: <a href="mailto:pragyajoshi2070@gmail.com">pragyajoshi2070@gmail.com</a></p>
+                    <p>Phone: 9800645869, 9749301432</p>
+                    <p>LinkedIn: <a href="http://www.linkedin.com/in/pragya-joshi-8813b2212" target="_blank">Pragya Joshi</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 GeoHealth Web Application Team</p>
+    </footer>
+{% endblock %}
