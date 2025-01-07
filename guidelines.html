@@ -1,0 +1,149 @@
+{% extends "index.html" %}
+{% block title %}Guidelines{% endblock %}
+{% block content %}
+<style>
+    
+    h1 {
+        color:rgb(38, 77, 59); 
+        font-size: 2.75rem; 
+        margin-top: 20px;
+    }
+    h2 {
+        color: #188754; 
+        font-size: 2.25rem; 
+        margin-top: 20px;
+    }
+    h3 {
+        color: #188754;
+        font-size: 2rem; 
+        margin-top: 20px;
+    }
+    h4 {
+        color: #188754;
+        font-size: 1.75rem; 
+        margin-top: 20px;
+    }
+    p, ul {
+        color: #000000; 
+        font-size: 1rem; 
+    }
+    ul {
+        margin-top: 10px;
+        padding-left: 20px;
+    }
+    ul li {
+        margin-bottom: 10px;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #145d3c; 
+        color: white; 
+        border-top: 3px solid #188754;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        position: fixed;
+    }
+    footer p {
+        font-size: 0.9em;
+        margin: 0;
+        color: white;
+    }
+    
+    
+</style>
+
+<h1>Guidelines</h1>
+    <p>The <strong>GeoHealth Web Application</strong> is a comprehensive tool designed to analyze healthcare accessibility in Kathmandu Valley. Using geospatial data and interactive maps, it empowers users to locate nearby hospitals within a specified radius and visualize spatial coverage with buffer zones. The application leverages modern geospatial technologies to address real-world challenges in health accessibility.</p>
+
+    <h3>Key Objectives</h3>
+    <ul>
+        <li>Provide an interactive platform for users to locate hospitals within a specific radius.</li>
+        <li>Visualize healthcare accessibility using geospatial data and buffer zones.</li>
+        <li>Enhance decision-making for health services planning and resource allocation.</li>
+    </ul>
+
+    <h3>Technology Stack</h3>
+    <p>The application is built using a robust technology stack, integrating advanced geospatial tools and frameworks:</p>
+    <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript for interactive maps and user-friendly interface.</li>
+        <li><strong>Backend:</strong> GeoDjango framework for managing geospatial data and functionalities.</li>
+        <li><strong>Database:</strong> PostgreSQL with PostGIS extension for spatial data storage and querying.</li>
+        <li><strong>APIs:</strong> GeoServer for hosting shapefiles and hospital data, Weather API for real-time weather information.</li>
+    </ul>
+
+    <h3>Functionality of Components</h3>
+    <ul>
+        <li><strong>Interactive Mapping:</strong> Users can interact with the map to specify a location and radius in meters.</li>
+        <li><strong>Hospital Locator:</strong> The system calculates Euclidean distances to find and display hospitals within the user-defined radius.</li>
+        <li><strong>Buffer Visualization:</strong> Buffer zones are dynamically rendered on the map, showcasing spatial coverage.</li>
+        <li><strong>Base and Overlay Layers:</strong> Includes OpenStreetMap, Esri Imagery, Carto Light, and Dark Matter as base layers, with overlays for Kathmandu Valley boundaries, hospitals, and weather data.</li>
+    </ul>
+
+    <h3>Step-by-Step User Guide</h3>
+    <ul>
+        <li><strong>Launch the GeoHealth Web Application:</strong>
+            <ul>
+                <li>Open the GeoHealth web application in your browser.</li>
+                <li>The map will be displayed as the main interface.</li>
+                <li>The interactive map will allow you to explore Kathmandu Valley and other areas.</li>
+            </ul>
+        </li>
+        <li><strong>Locate a Point on the Map:</strong>
+            <ul>
+                <li>Click anywhere on the map to select a specific location.</li>
+                <li>The clicked location will be marked on the map with a marker.</li>
+                <li>You can adjust the marker's position to precisely select the location of interest.</li>
+            </ul>
+        </li>
+        <li><strong>Input a Radius:</strong>
+            <ul>
+                <li>Find the input field labeled "Enter Radius (meters)".</li>
+                <li>Enter the radius in meters (the distance from the selected point within which you want to search for hospitals).</li>
+                <li>Click the "Submit" button to apply the radius.</li>
+            </ul>
+        </li>
+        <li><strong>View Hospitals within the Radius:</strong>
+            <ul>
+                <li>The application will send a request to the server with the selected location and radius.</li>
+                <li>Hospitals within the specified radius will be retrieved from the server.</li>
+                <li>Markers representing the hospitals will appear on the map, showing their exact locations.</li>
+                <li>You can click on any hospital marker to see more details such as the hospital name, type, and other relevant information.</li>
+            </ul>
+        </li>
+        <li><strong>Visualize the Buffer Zone:</strong>
+            <ul>
+                <li>A circular buffer zone will be drawn on the map, centered at the selected point.</li>
+                <li>This buffer zone visually highlights the area within which the hospitals are located, helping you easily see the search area.</li>
+            </ul>
+        </li>
+        <li><strong>Toggle Base Maps:</strong>
+            <ul>
+                <li>You can switch between different base maps to customize the map view.</li>
+                <li>Available base maps include OpenStreetMap, Esri Imagery, Carto Light, and Dark Matter.</li>
+                <li>Base maps can be toggled via the layer control menu on the map.</li>
+            </ul>
+        </li>
+        <li><strong>View Hospital Data and Weather Information:</strong>
+            <ul>
+                <li>The application will display hospital data (hospital names, types) on the map.</li>
+                <li>The weather data for the selected point (latitude and longitude) will be fetched from the weather API.</li>
+                <li>The real-time weather conditions (such as temperature, humidity, and weather condition) will be displayed in a popup when you click on the location marker.</li>
+            </ul>
+        </li>
+        <li><strong>Search Locations:</strong>
+            <ul>
+                <li>A search box is available at the bottom of the map for easy location search.</li>
+                <li>You can enter any location (city name, landmark, etc.) to find it on the map.</li>
+                <li>Press Enter after typing a location, and the map will zoom to that location.</li>
+                <li>The application will place a marker at the searched location and show the weather conditions for that point.</li>
+            </ul>
+        </li>
+    </ul>
+    <footer>
+        <p>© 2025 GeoHealth Web Application Team</p>
+    </footer>
+
+{% endblock %}
