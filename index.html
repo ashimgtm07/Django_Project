@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GeoHealth Web Application{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    {%load static%}
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: rgba(24, 135, 84, 0.4);
+            padding-bottom: 80px;
+            box-sizing: border-box;
+        }
+        #map {
+            height: 70vh;
+            width: 100%;
+        }
+       
+        .content-section {
+            padding: 20px;
+        }
+    
+        
+
+    </style>
+</head>
+<body>
+   
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt="Logo" style="height: 30px; margin-right: 10px;">GeoHealth Web Application</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'guidelines' %}">Guidelines</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'documents' %}">Documents</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="container mt-4 text-center">
+      
+    </div>
+    <div class="container mt-4">
+      
+        {% block content %}
+        <style>
+            
+            
+            h2 {
+                color:rgb(52, 92, 53);
+                font-family: 'Roboto', sans-serif;
+                font-size: 2.2em;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                text-align: center;
+            }
+    
+            .card {
+                background-color: #fafafa;
+                border-radius: 8px;
+                padding: 1.5rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 2rem;
+                transition: transform 0.3s ease;
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto; 
+                
+            }
+    
+            .card:hover {
+                transform: translateY(-10px);
+            }
+    
+            .card h3 {
+                color: #4CAF50;
+                margin-bottom: 1rem;
+                font-family: 'Roboto', sans-serif;
+                font-size: 1.5em;
+            }
+    
+            .card p {
+                color: #555;
+                font-size: 1.1em;
+            }
+            footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #145d3c; 
+                color: white; 
+                border-top: 3px solid #188754;
+                width: 100vw;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                position: fixed;
+            }
+            footer p {
+                font-size: 0.9em;
+                margin: 0;
+            } 
+        
+        </style>
+        <div id="home" class="content-section">
+            
+
+            <h2>About the Project</h2>
+
+    <!-- Card 1: Healthcare Accessibility -->
+    <div class="card">
+        <h3>Healthcare Accessibility</h3>
+        <p>The GeoHealth Web Application aims to analyze the accessibility of healthcare facilities in Kathmandu Valley by using geospatial data. It leverages the power of the GeoDjango framework to integrate hospital location data, calculate Euclidean distances in projected space, and visualize healthcare accessibility on interactive maps.</p>
+    </div>
+
+    <!-- Card 2: Interactive Features -->
+    <div class="card">
+        <h3>Interactive Features</h3>
+        <p>The application allows users to input a specific radius in meters and find the nearest hospitals within that radius. Additionally, buffer zones are displayed to show the coverage area, along with key base and overlay maps that enhance the user experience.</p>
+    </div>
+
+    <!-- Card 3: Framework Used -->
+    <div class="card">
+        <h3>Framework Used</h3>
+        <p>The application uses the <strong>GeoDjango</strong> framework, which extends Django to support geospatial data. GeoDjango makes it possible to work with geographic information systems (GIS) data and create powerful spatial queries and visualizations.</p>
+    </div>
+
+    <!-- Card 4: Base Layers -->
+    <div class="card">
+        <h3>Base Layers</h3>
+        <p>The application integrates the following base layers to provide detailed maps:</p>
+        <ul>
+            <li>OpenStreetMap</li>
+            <li>Esri Imagery</li>
+            <li>Carto Light</li>
+            <li>Dark Matter</li>
+        </ul>
+    </div>
+
+    <!-- Card 5: Overlay Layers -->
+    <div class="card">
+        <h3>Overlay Layers</h3>
+        <p>The following overlay layers are used to enhance the map's interactivity:</p>
+        <ul>
+            <li>Kathmandu Valley Shapefile</li>
+            <li>Kathmandu Hospital Data</li>
+            <li>Weather API Group Layer</li>
+        </ul>
+    </div>
+
+    <!-- Card 6: Frontend Design -->
+    <div class="card">
+        <h3>Frontend Design</h3>
+        <p>The application utilizes an intuitive frontend design using JavaScript and CSS, ensuring smooth interactions. The hospital-themed background image reflects the core focus of the application, providing a clear visual association with healthcare accessibility.</p>
+    </div>
+
+    <!-- Card 7: CQL Filters -->
+    <div class="card">
+        <h3>CQL Filters</h3>
+        <p>The application uses CQL (Common Query Language) filters to refine search results. Users can filter hospitals by type, services offered, or location. This makes it easier to find the best healthcare options based on specific needs.</p>
+        <ul>
+            <li><strong>Filter by hospital type:</strong> "TYPE = 'General Hospital'"</li>
+            <li><strong>Filter by services:</strong> "SERVICES LIKE '%Emergency%'"</li>
+            <li><strong>Filter by location:</strong> "INTERSECTS(geom, POLYGON((...)))"</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Bootstrap Integration</h3>
+        <p>The application uses <strong>Bootstrap</strong> to build responsive and mobile-first web pages. It helps in creating a flexible and user-friendly interface, making the application accessible across different devices and screen sizes.</p>
+    </div>
+    <footer>
+        <p>© 2025 GeoHealth Web Application Team</p>
+    </footer>
+        <div id="map"></div></div> 
+        {% endblock %}
+    </div>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
